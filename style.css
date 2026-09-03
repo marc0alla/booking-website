@@ -882,3 +882,21 @@ section.show {
   box-shadow:
     0 10px 30px rgba(255,255,255,0.1);
 }
+
+.contact-copy-email {
+  font: inherit;
+  color: white;
+  cursor: pointer;
+}
+
+.contact-copy-email:hover {
+  color: black;
+}
+
+.contact-feedback {
+  min-height: 1.4em;
+  margin-top: 18px;
+  color: rgba(255,255,255,0.55);
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}

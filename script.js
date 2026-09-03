@@ -58,3 +58,23 @@ window.addEventListener("scroll", () => {
   }
 
 });
+
+
+// COPIAR E-MAIL DE CONTATO
+
+const copyEmailButton = document.querySelector(".contact-copy-email");
+const contactFeedback = document.querySelector(".contact-feedback");
+
+if (copyEmailButton) {
+  copyEmailButton.addEventListener("click", async () => {
+    const email = copyEmailButton.dataset.email;
+
+    try {
+      await navigator.clipboard.writeText(email);
+      contactFeedback.textContent = "E-mail copiado: " + email;
+      copyEmailButton.textContent = "E-mail copiado ✓";
+    } catch (error) {
+      window.prompt("Copie o e-mail abaixo:", email);
+    }
+  });
+}
