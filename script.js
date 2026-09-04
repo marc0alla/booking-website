@@ -60,6 +60,28 @@ window.addEventListener("scroll", () => {
 });
 
 
+// MENU MOBILE
+
+const menuToggle = document.querySelector(".menu-toggle");
+const navigation = document.querySelector("#site-navigation");
+
+if (menuToggle && navigation) {
+  menuToggle.addEventListener("click", () => {
+    const isOpen = navigation.classList.toggle("is-open");
+    menuToggle.setAttribute("aria-expanded", isOpen);
+    menuToggle.textContent = isOpen ? "Fechar" : "Menu";
+  });
+
+  navigation.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      navigation.classList.remove("is-open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.textContent = "Menu";
+    });
+  });
+}
+
+
 // COPIAR E-MAIL DE CONTATO
 
 const copyEmailButton = document.querySelector(".contact-copy-email");
