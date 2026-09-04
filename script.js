@@ -41,10 +41,13 @@ document.addEventListener("mousemove", (e) => {
 // HEADER SCROLL EFFECT
 
 const header = document.querySelector("header");
+let lastScrollPosition = window.scrollY;
 
 window.addEventListener("scroll", () => {
 
-  if (window.scrollY > 50) {
+  const currentScrollPosition = window.scrollY;
+
+  if (currentScrollPosition > 50) {
 
     header.style.background = "rgba(0,0,0,0.9)";
     header.style.borderBottom =
@@ -56,6 +59,14 @@ window.addEventListener("scroll", () => {
     header.style.borderBottom =
       "1px solid rgba(255,255,255,0.1)";
   }
+
+  if (currentScrollPosition > lastScrollPosition && currentScrollPosition > 100) {
+    header.classList.add("is-hidden");
+  } else {
+    header.classList.remove("is-hidden");
+  }
+
+  lastScrollPosition = currentScrollPosition;
 
 });
 
